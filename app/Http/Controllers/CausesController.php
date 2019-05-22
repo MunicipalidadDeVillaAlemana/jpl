@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Cause;
+use App\Models\Cause;
 use Illuminate\Http\Request;
 
 class CausesController extends Controller
