@@ -19,4 +19,4 @@ Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
-Route::post('causes', 'CausesController@new')->name('causes.new');
+Route::post('causes', 'CausesController@new')->name('causes.new')->middleware('auth');

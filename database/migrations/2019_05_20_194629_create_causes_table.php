@@ -15,6 +15,7 @@ class CreateCausesTable extends Migration
     {
         Schema::create('causes', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id');
             $table->text('body');
             $table->timestamps();
         });

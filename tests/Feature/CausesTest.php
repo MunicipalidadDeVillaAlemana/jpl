@@ -14,9 +14,16 @@ class CausesTest extends TestCase
      */
     use RefreshDatabase;
 
+    public function test_guests_can_not_create_causes(){
+        $response = $this->post(route('causes.new'), ['body' => 'Nueva Causa']);
 
-    public function test_an_authtenticated_user_can_create_a_new_cause()
-    {
+        $response->assertRedirect('login');
+
+    }
+
+
+    public function test_an_authtenticated_user_can_create_a_new_cause(){
+        
         $this->withoutExceptionHandling();
 
         // 1. Teniendo un usuario autenticado
@@ -24,7 +31,12 @@ class CausesTest extends TestCase
         $this->actingAs($user);
 
         // 2. Cuando hace un post request al formulario de causas
-        $this->post(route('causes.new'), ['body' => 'Nueva Causa']);
+        $response = $this->post(route('causes.new'), ['body' => 'Nueva Causa']);
+
+        $response->assertJson([
+            'body' => 'Nueva Causa'
+        ]);
+
 
         // 3. Entonces veo una nueva causa en la BD
         $this->assertDatabaseHas('causes', [
