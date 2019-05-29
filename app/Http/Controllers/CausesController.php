@@ -10,9 +10,11 @@ class CausesController extends Controller
     //
     public function new (){
 
-        Cause::create([
+        $cause = Cause::create([
             'body' => request('body'),
             'user_id' => auth()->id()
         ]);
+
+        return response()->json(['body' => $cause->body]);
     }
 }

@@ -15,4 +15,6 @@
 //     return view('welcome');
 // });
 
-Route::post('causes', 'CausesController@new')->name('causes.new');
+Route::post('causes', 'CausesController@new')->name('causes.new')->middleware('auth');
+
+Route::auth();

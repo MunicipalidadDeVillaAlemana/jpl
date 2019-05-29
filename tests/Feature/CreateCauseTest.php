@@ -10,6 +10,16 @@ use App\User;
 class CreateCauseTest extends TestCase
 {
     use RefreshDatabase;
+
+    /** @test */
+    public function guest_user_cant_create_causes(){
+
+        $response = $this->post(route('causes.new'), ['body' => 'Nueva Causa']);
+
+        $response->assertRedirect('login');
+    }
+
+
     /** @test */
     public function an_authenticated_user_can_create_causes(){
 
@@ -19,7 +29,12 @@ class CreateCauseTest extends TestCase
         $user = factory(User::class)->create(['name' => 'Actuaria']);
         $this->actingAs($user);
         // 2.- Cuando hace un post request a causes
-        $this->post(route('causes.new'), ['body' => 'Nueva Causa']);
+        $response = $this->post(route('causes.new'), ['body' => 'Nueva Causa']);
+
+        $response->assertJson([
+            'body' => 'Nueva Causa'
+        ]);
+
         // 3.- Entonces veo una nueva causa en la bd
         $this->assertDatabaseHas('causes',[
             'user_id' => $user->id,
