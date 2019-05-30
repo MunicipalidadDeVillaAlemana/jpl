@@ -15,6 +15,8 @@
 //     return view('welcome');
 // });
 
+Route::view('/','welcome');
+
 Route::post('causes', 'CausesController@new')->name('causes.new')->middleware('auth');
 
 Route::auth();
