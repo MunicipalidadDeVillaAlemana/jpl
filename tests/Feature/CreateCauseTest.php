@@ -14,7 +14,16 @@ class CreateCauseTest extends TestCase
     /** @test */
     public function guest_user_cant_create_causes(){
 
-        $response = $this->post(route('causes.new'), ['body' => 'Nueva Causa']);
+        $response = $this->post(route('causes.new'), [
+            'rol' => '185.065',
+            // fecha ingreso
+            'complainant_name' => 'Nombre Denunciante',
+            'denounced_name' => 'Nombre Denunciado',
+            'primary_category' => 'Categoria Principal',
+            'secondary_category' => 'Categoria Secundaria',
+            'state' => 'Estado 0'
+            //fecha de ultimo estado
+        ]);
 
         $response->assertRedirect('login');
     }
@@ -29,16 +38,39 @@ class CreateCauseTest extends TestCase
         $user = factory(User::class)->create(['name' => 'Actuaria']);
         $this->actingAs($user);
         // 2.- Cuando hace un post request a causes
-        $response = $this->post(route('causes.new'), ['body' => 'Nueva Causa']);
+        $response = $this->post(route('causes.new'), [
+            'rol' => '185.065',
+            // fecha ingreso
+            'complainant_name' => 'Nombre Denunciante',
+            'denounced_name' => 'Nombre Denunciado',
+            'primary_category' => 'Categoria Principal',
+            'secondary_category' => 'Categoria Secundaria',
+            'state' => 'Estado 0'
+            //fecha de ultimo estado
+        ]);
 
         $response->assertJson([
-            'body' => 'Nueva Causa'
+            'rol' => '185.065',
+            // fecha ingreso
+            'complainant_name' => 'Nombre Denunciante',
+            'denounced_name' => 'Nombre Denunciado',
+            'primary_category' => 'Categoria Principal',
+            'secondary_category' => 'Categoria Secundaria',
+            'state' => 'Estado 0'
+            //fecha de ultimo estado
         ]);
 
         // 3.- Entonces veo una nueva causa en la bd
         $this->assertDatabaseHas('causes',[
             'user_id' => $user->id,
-            'body' => 'Nueva Causa'
+            'rol' => '185.065',
+            // fecha ingreso
+            'complainant_name' => 'Nombre Denunciante',
+            'denounced_name' => 'Nombre Denunciado',
+            'primary_category' => 'Categoria Principal',
+            'secondary_category' => 'Categoria Secundaria',
+            'state' => 'Estado 0'
+            //fecha de ultimo estado
         ]);
 
     }

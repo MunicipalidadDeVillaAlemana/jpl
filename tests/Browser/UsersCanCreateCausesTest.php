@@ -23,10 +23,10 @@ class UsersCanCreateCausesTest extends DuskTestCase
         $this->browse(function (Browser $browser) use ($user) {
             $browser->loginAs($user)
                     ->visit('/')
-                    ->type('body', 'Nueva Causa')
+                    ->type('rol', '185.065')
                     ->press('#create-cause')
                     ->screenshot('after #create-cause')
-                    ->assertSee('Nueva Causa')
+                    ->assertSee('185.065')
             ;
         });
     }
