@@ -25,7 +25,7 @@ class UsersCanCreateCausesTest extends DuskTestCase
                     ->visit('/')
                     ->type('body', 'Nueva Causa')
                     ->press('#create-cause')
-                    //->screenshot('after #create-cause')
+                    ->screenshot('after #create-cause')
                     ->assertSee('Nueva Causa')
             ;
         });
