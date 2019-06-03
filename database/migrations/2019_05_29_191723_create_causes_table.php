@@ -17,11 +17,11 @@ class CreateCausesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedInteger('user_id');
             $table->string('rol', 10);
-            $table->string('complainant_name', 100)->nullable();
-            $table->string('denounced_name', 100)->nullable();
-            $table->string('primary_category', 100)->nullable();
-            $table->string('secondary_category', 100)->nullable();
-            $table->string('state', 50)->nullable();
+            $table->string('complainant_name', 100);
+            $table->string('denounced_name', 100);
+            $table->string('primary_category', 100);
+            $table->string('secondary_category', 100);
+            $table->string('state', 50);
             $table->timestamps();
         });
     }
