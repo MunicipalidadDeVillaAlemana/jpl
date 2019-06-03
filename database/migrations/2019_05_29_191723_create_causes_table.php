@@ -16,12 +16,12 @@ class CreateCausesTable extends Migration
         Schema::create('causes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedInteger('user_id');
-            $table->char('rol', 10);
-            $table->char('complainant_name', 100)->nullable($value = true);
-            $table->char('denounced_name', 100)->nullable($value = true);
-            $table->char('primary_category', 100)->nullable($value = true);
-            $table->char('secondary_category', 100)->nullable($value = true);
-            $table->char('state', 50)->nullable($value = true);
+            $table->string('rol', 10);
+            $table->string('complainant_name', 100)->nullable();
+            $table->string('denounced_name', 100)->nullable();
+            $table->string('primary_category', 100)->nullable();
+            $table->string('secondary_category', 100)->nullable();
+            $table->string('state', 50)->nullable();
             $table->timestamps();
         });
     }
