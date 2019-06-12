@@ -15,7 +15,7 @@
 //     return view('welcome');
 // });
 
-Route::view('/','welcome');
+Route::view('/','welcome')->name('home');
 
 Route::post('causes', 'CausesController@new')->name('causes.new')->middleware('auth');
 

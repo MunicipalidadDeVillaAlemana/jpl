@@ -13,7 +13,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
         <div class="container">
-            <a class="navbar-brand" href="#">JPL</a>
+            <a class="navbar-brand" href="{{  route('home')  }}">JPL</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -32,16 +32,22 @@
                 </ul>
 
                 <ul class="navbar-nav ml-auto">
+                    @guest
+                    <li class="nav-item"><a href="{{  route('login')  }}" class="nav-link">Iniciar Sesión</a></li>
+                    @else
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Sesión
+                            {{ Auth::user()->name }}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Salir</a>
+                            <a onclick="document.getElementById('logout').submit()" class="dropdown-item" href="#">Salir</a>
                             <a class="dropdown-item" href="#">Editar</a>
                         </div>
                     </li>
+
                 </ul>
+                <form id="logout" action="{{  route('logout')  }}" method="post">@csrf</form>
+                @endguest
             </div>
         </div>
     </nav>
