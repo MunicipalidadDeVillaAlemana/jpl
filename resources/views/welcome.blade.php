@@ -19,23 +19,23 @@
                             <label>Nombre del(los) Demandado(s)</label>
                             <input class="form-control" name="denounced_name" type="text" placeholder="Luis Esteban Alvarez Gutierrez, ..."></input>
                             <div class="form-group">
-                                <label for="exampleFormControlSelect1">Seleccione categoría</label>
+                                <label for="exampleFormControlSelect1">Seleccione Tipo</label>
                                 <select name="primary_category"class="form-control" >
-                                    <option>Categoria Principal</option>
-                                    <option>Categoria Principal2</option>
-                                    <option>Categoria Principal3</option>
-                                    <option>Categoria Principal4</option>
-                                    <option>Categoria Principal5</option>
+                                    <option>Tipo Principal</option>
+                                    <option>Tipo Principal2</option>
+                                    <option>Tipo Principal3</option>
+                                    <option>Tipo Principal4</option>
+                                    <option>Tipo Principal5</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="exampleFormControlSelect1">Seleccione sub-categoría</label>
+                                <label for="exampleFormControlSelect1">Seleccione sub-tipo</label>
                                 <select name="secondary_category"class="form-control" >
-                                    <option>Categoria Secundaria</option>
-                                    <option>Categoria Secundaria2</option>
-                                    <option>Categoria Secundaria3</option>
-                                    <option>Categoria Secundaria4</option>
-                                    <option>Categoria Secundaria5</option>
+                                    <option>sub-tipo 1</option>
+                                    <option>sub-tipo 2</option>
+                                    <option>sub-tipo 3</option>
+                                    <option>sub-tipo 4</option>
+                                    <option>sub-tipo 5</option>
                                 </select>
                             </div>
                             <div class="form-group">
